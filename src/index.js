@@ -31,10 +31,15 @@ app.get('/', (req, res) => {
         // eslint-disable-next-line no-console
         console.log('My token:', token);
   
-        res.redirect(`/?token=${token}`);
+        res.redirect(`/home/?token=${token}`);
       })
       .catch((err) => res.status(500).json({ err: err.message }));
   });
+
+
+  app.get("/home",(req,res)=>{
+    res.json({message:req.query.token})
+      });
 
 
 app.listen(3000);
