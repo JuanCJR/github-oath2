@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
         // eslint-disable-next-line no-console
         console.log('My token:', token);
   
-        res.redirect(`/home/?token=${token}`);
+        res.redirect(`http://localhost:3000/oauth-callback?token=${token}`);
       })
       .catch((err) => res.status(500).json({ err: err.message }));
   });
